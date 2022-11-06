@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Criando elemento dinamico</title>
+    <!-- ADD BOOTSTRAP APENAS PRA FORMATAR HTML-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+
+    <!-- ADD JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- ADD SCRIPT QUE ADICIONAR O ELEMENTOS DINAMICAMENTE-->
+    <script>
+        $(document).ready(function(){
+            //Atribui o evento click a classe .btn-insert-field
+            $('.btn-insert-field').click(function(e){
+                //Remove ação padrão do link para não atualiza a página
+                e.preventDefault();
+                
+                //Define o elemento onde será inserido os campos
+                var target  = $("#target");
+                //total de linhas criadas dinamicamente
+                //Será utilizado com indices pra serem removidos mais facilmente
+                var total = $("#target tr").length;
+                //Cria estrutura que será inserida
+                var html   = '<tr class="row-field-'+total+'">';
+                        html   += '<td><input type="text" name="product[]" /></td>';
+                        html   += '<td><input type="text" name="price[]" /></td>';
+                        html   += '<td><a href="#" class="btn btn-danger btn-sm  btn-delete-row" data-id="'+total+'">X</a></td>';
+                    html   += '<tr>';
+                
+                //Adiciona no final do elemento que foi selecionado anteriormente
+                target.append(html);
+            });
+            
+            //Atribui a classe .btn-delete-row o evento click
+            //É usado on porque o elemento será criado dinamicamente
+            $(document).on('click', '.btn-delete-row', function(e){
+                //Remove ação padrão do link para não atualiza a página
+                e.preventDefault();
+                //pega o valor do data-id
+                var id  = $(this).data('id');
+                //Remove a linha
+                $('.row-field-'+id).detach();
+
+            });
+        });
+    </script>
+</head>
+<body>
+    
+   <div class="container">
+       <table class="table">
+           <thead class="thead-dark">
+               <tr>
+                   <th>Produto</th>
+                   <th>Preço</th>
+                   <th width="5"><a href="#" class="btn btn-primary btn-insert-field">Adicionar</a></th>
+               </tr>
+           </thead>
+           <tbody id="target">
+
+           </tbody>
+       </table>
+   </div>
+    
+</body>
+</html>

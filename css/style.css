@@ -1,0 +1,39 @@
+div.painel {
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+
+}
+
+div.header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 100px;
+  font-size: 25px;
+}
+div.box {
+	margin-top: 18px;
+	float: left;
+  width: 49%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+  div.header1 {
+  background-color: #A9A9A9;
+  color: white;
+  padding: 50px;
+  font-size: 25px;
+}
+div.box2 {
+	margin-top: 18px;
+	float: right;
+  width: 49%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+div.header2 {
+  background-color: #A9A9A9;
+  color: white;
+  padding: 107px;
+  font-size: 20px;
+  }
